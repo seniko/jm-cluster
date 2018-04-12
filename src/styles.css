@@ -26,7 +26,8 @@ p {
 .dropdown-item:active > .text-muted {
     color: #fff !important;
 }
-.footer {
+.footer {    
+    margin-top: 50px;
     border-top: 1px solid #e3edf1;
 }
  /* Extra small devices (portrait phones, less than 576px) */
