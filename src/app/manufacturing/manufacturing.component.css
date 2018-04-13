@@ -5,6 +5,7 @@
     position: sticky;
     padding: 0 0 0 1rem;
     top: 175px;
+    font-weight: 500;
 }
 .bd-toc ul {
     list-style: none;
@@ -26,9 +27,6 @@
     text-decoration: none;
 }
 
-.content {
-    height: 1600px;
-}
 .content-wrap {
     margin-bottom: 45px;
 }
