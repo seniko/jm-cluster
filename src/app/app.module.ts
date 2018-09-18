@@ -30,11 +30,11 @@ import { LoginComponent } from './login/login.component';
 
 
 import { AuthService } from './services/auth.service';
-import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { AdminComponent } from './admin/admin.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { OrderService } from './services/order.service';
-import { WindowRef } from './services/window-ref.service';
+
 
 import { NewsService } from './services/news.service';
 import { KnowledgeComponent } from './knowledge/knowledge.component';
@@ -163,8 +163,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminAuthGuard,
     MockProvider,
     MockBackend,
-    BaseRequestOptions,
-    WindowRef
+    BaseRequestOptions
   ],
   bootstrap: [AppComponent]
 })

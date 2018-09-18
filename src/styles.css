@@ -16,15 +16,15 @@ body {
 .btn {
     border: none;
 }
-.btn-primary {
-    /*background-color: #00b0ff;*/
+/*.btn-primary {
+    background-color: #00b0ff;
     background-color: hsla(30, 92%, 55%, 0.7);
-}
+}*/
 .dropdown-item:active > .text-muted {
     color: #fff !important;
 }
 .footer {    
-    margin-top: 50px;
+    margin-top: 150px;
     border-top: 1px solid #e3edf1;
     font-weight: 500;
 }
