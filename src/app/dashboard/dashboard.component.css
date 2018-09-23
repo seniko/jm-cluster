@@ -1,0 +1,13 @@
+.fas {
+    color: #1395ba;
+}
+
+/* .btn-primary {
+    background-color: #90acd1;
+} */
+
+@media (min-width: 992px) {
+    .dashboard-container {
+        min-height: 268px;
+    }
+}

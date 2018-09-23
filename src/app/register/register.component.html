@@ -1,0 +1,60 @@
+<div class="form-container text-center">
+
+    <form ngForm #f="ngForm" (ngSubmit)="onSubmit()" class="register">
+      
+        <img class="mb-4" src="assets\img\security.svg" alt="" width="72">
+        <h1 class="h3 mb-3 font-weight-normal">Регистрация</h1>
+
+        <!-- <h1 class="h3 mb-5 font-weight-normal">Регистрация</h1> -->
+        <div ngModelGroup="contact" #contact="ngModelGroup">
+            <div class="form-group">
+                <label for="firstName">Имя</label>
+                <input 
+                  required 
+                  minlength="2" 
+                  ngModel 
+                  name="name" 
+                  #name="ngModel" 
+                  id="name" 
+                  type="text" 
+                  placeholder="Name"
+                  class="form-control" [(ngModel)]="nameVal">
+            </div>
+            <div class="alert alert-danger" *ngIf="!name.valid && name.touched">
+                <div *ngIf="name.errors.required">
+                  Name is required
+                </div>
+                <div *ngIf="name.errors.minlength">
+                  Name should be minimum {{name.errors.minlength.requiredLength}} characters
+                </div>
+              </div>
+  
+            
+            <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <input type="email" id="inputEmail" name="email" ngModel #email="ngModel" class="form-control" placeholder="Email address" email required [(ngModel)]="emailVal">
+            </div>
+            <div class="alert alert-danger" *ngIf="!email.valid && email.touched">
+                Email is required
+            </div>
+  
+  
+            <div class="form-group">
+                <label for="inputPassword">Пароль</label>
+                <input type="password" id="inputPassword" name="password" ngModel #password="ngModel" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{4,}$" class="form-control" required [(ngModel)]="passwordVal">               
+            </div>
+            <div class="alert alert-danger" *ngIf="!password.valid && password.touched">
+                <div *ngIf="password.errors.required">
+                    Password is required
+                </div>
+                <div *ngIf="password.errors.pattern">
+                    Password should be minimum 4 characters, contain uppercase letter, lowercase letter, number
+                </div>
+            </div>
+        </div>
+  
+        <button type="submit" class="btn btn-lg btn-block mt-4 btn-primary" [disabled]="!f.valid">Регистрация</button>
+      </form>
+  
+    </div>
+    

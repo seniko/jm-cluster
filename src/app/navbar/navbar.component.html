@@ -2,7 +2,7 @@
   <div class="container">
 
     <a class="navbar-brand" routerLink="/">
-      <img src="/assets/img/Logo.svg" class="logo" alt="Logo">
+      <img src="/assets/img/Logo-3_JMcluster.png" class="logo" alt="Logo">
     </a>
     <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" [attr.aria-expanded]="!isCollapsed">
         <span class="navbar-toggler-icon"></span>
@@ -20,19 +20,25 @@
             <input class="form-control form-control-sm" type="text" placeholder="{{ 'NAVBAR.SEARCH' | translate }}" aria-label="Search">
           </form>
         </li>
-        <li *ngIf="authService.isLoggedIn()"><a class="nav-link">{{ authService.currentUser.name }}</a></li>
-        <li *ngIf="!authService.isLoggedIn()" class="nav-item" routerLinkActive="active">
-          <a class="nav-link" href="#">{{ 'NAVBAR.SIGNUP' | translate }}</a>
+
+        <li *ngIf="authService.loggedIn() && authService.isAdmin()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/dashboard">{{ 'NAVBAR.DASHBOARD' | translate }}</a>
         </li>
-        <li *ngIf="!authService.isLoggedIn()" class="nav-item" routerLinkActive="active">
-          <a class="nav-link" href="#">{{ 'NAVBAR.SIGNIN' | translate }}</a>
+        <li *ngIf="authService.loggedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/profile">{{ authService.currentUserName() }}</a>
         </li>
-        <li *ngIf="authService.isLoggedIn()" class="nav-item">
-          <a class="nav-link" routerLink="/login" (click)="authService.logout()">{{ 'NAVBAR.SIGNOUT' | translate }}</a>
+        <li *ngIf="!authService.loggedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/register">{{ 'NAVBAR.SIGNUP' | translate }}</a>
+        </li>
+        <li *ngIf="!authService.loggedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/login">{{ 'NAVBAR.SIGNIN' | translate }}</a>
+        </li>
+        <li *ngIf="authService.loggedIn()" class="nav-item" routerLinkActive="active">
+          <a href="" class="nav-link" (click)="onLogout()">{{ 'NAVBAR.SIGNOUT' | translate }}</a>
         </li>
       </ul>
       <ul class="navbar-nav ">
-        <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">
+        <!-- <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">
           <a ngbDropdownToggle class="nav-link dropdown-toggle">
             <span class="icon-earth-globe"></span> {{ 'NAVBAR.EDUCATION' | translate }}</a>
           <div ngbDropdownMenu class="dropdown-menu show">
@@ -42,15 +48,19 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" routerLink="/khpi" [innerHTML]=" 'NAVBAR.KHPI' | translate "></a>
           </div>
-        </li>
-        <li class="divider-vertical"></li>
+        </li> -->
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/science"><span class="icon-scientist"></span> {{ 'NAVBAR.SCIENCE' | translate }}</a>
+          <a class="nav-link" routerLink="/cluster"><span class="icon-network"></span> {{ 'NAVBAR.JMCLUSTER' | translate }}</a>
         </li>
         <li class="divider-vertical"></li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/manufacturing"><span class="icon-industrial-robot"></span> {{ 'NAVBAR.MANUFACTURING' | translate }}</a>
         </li>
+        <li class="divider-vertical"></li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/science"><span class="icon-scientist_1"></span> {{ 'NAVBAR.SCIENCE' | translate }}</a>
+        </li>
+        
         <li class="divider-vertical"></li>
         <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">
           <a ngbDropdownToggle class="nav-link dropdown-toggle"><span class="icon-calculator"></span> {{ 'NAVBAR.TOOLS' | translate }}</a>

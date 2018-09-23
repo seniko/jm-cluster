@@ -1,27 +1,29 @@
 .intro {
     position: relative;
+    margin-top: -10px;
 }
 .intro-bg {
-    opacity: 0.6;
-    image-rendering: unset;
+    display: none;
+    /* opacity: 0.6;
+    image-rendering: unset; */
 }
 .intro-logo {
     display: none;
 }
 .intro-slogan {
-    position: absolute;
+    /*position: absolute;
     width: 100%;
     top: 50%;
-    left: 50%;
+    left: 50%;*/
     text-align: center;
-    transform: translate(-50%, -50%);
+    /*transform: translate(-50%, -50%);*/
 }
 .intro-slogan h1 {
     /* color: #736d68; */
     /* color: #827c78; */
     color: #928d8b;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     letter-spacing: 2px;
     line-height: 35px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -31,7 +33,7 @@
     /* color: #827c78; */
     /* color: #928d8b; */
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     letter-spacing: 2px;
     line-height: 25px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -39,9 +41,30 @@
 .media img {
     opacity: 0.9;
 }
+
+@media (max-width: 576px) {
+    .media-body {
+        font-size: 1.13rem;
+        padding: 0 30px;
+    }
+}
 @media (min-width: 576px) {
+    .intro-bg {
+        display: block;
+        opacity: 0.6;
+        image-rendering: unset;
+    }
+    .background {
+        display: block;
+    }
     .intro-slogan {
+        position: absolute;
+        width: 100%;
+        left: 50%;
+
         top: 50%;
+        
+        transform: translate(-50%, -50%);
     }
     .intro-slogan h1 {
         font-size: 2rem;
@@ -106,8 +129,10 @@
 }
 @media (min-width: 1350px) {
     .intro-logo {
-        width: 378px;
-        top: 75px;
+        /* width: 378px;
+        top: 75px; */
+        width: 530px;
+        top: 0;
     }
     .intro-slogan {
         top: 79%;

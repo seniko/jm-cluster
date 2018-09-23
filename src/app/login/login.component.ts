@@ -1,31 +1,41 @@
-import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router";
-import { AuthService } from './../services/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
-  selector: 'login',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  invalidLogin: boolean; 
-  
-    constructor(
-      private router: Router, 
-      private route: ActivatedRoute,
-      private authService: AuthService) { }
-  
-    signIn(credentials) {
-      this.authService.login(credentials)
-        .subscribe(result => { 
-          if (result) {
-            let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl')
-            this.router.navigate([returnUrl || '/']);
-          } else  {
-            this.invalidLogin = true; 
-          }
-        });
+  emailVal: String;
+  passwordVal: String;
+
+  constructor(private authService: AuthService,
+    private _flashMessagesService: FlashMessagesService, 
+    private router: Router) { }
+
+  ngOnInit() {
+  }
+
+  onLoginSubmit() {
+    const user = {
+      email: this.emailVal,
+      password: this.passwordVal
     }
+
+    this.authService.authenticateUser(user).subscribe( data => {
+      if (data.success) {
+        this.authService.storeUserData(data.token, data.user);
+        this._flashMessagesService.show('Logged in.', {cssClass: 'alert-success alert-container container flashfade', timeout: 5000});
+        this.router.navigate(['/']);
+      }
+    }, err => {
+      this._flashMessagesService.show('Invalid email or password.', {cssClass: 'alert-danger alert-container container flashfade', timeout: 5000});
+      this.router.navigate(['/login']); 
+    });
+  }
 
 }

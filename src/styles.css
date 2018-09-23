@@ -13,6 +13,16 @@ body {
     padding-right: 10px;
     padding-left: 10px;
 }
+.carrot {
+    color: #f68a20;
+}
+.sandy {
+    color: #f9ad62;
+}
+.eastern-blue {
+    color: #1395ba;
+}
+
 .btn {
     border: none;
 }
@@ -28,6 +38,25 @@ body {
     border-top: 1px solid #e3edf1;
     font-weight: 500;
 }
+
+.alert-container {
+    position: absolute;
+}
+
+.flashfade {
+    animation-name: flashfade;
+    animation-duration: 5.1s;
+    display: block;
+}
+
+@keyframes flashfade {
+    0% {opacity:0}
+    20% {opacity:1}
+    80% {opacity:1}
+    100% {opacity:0}
+}
+
+
  /* Extra small devices (portrait phones, less than 576px) */
  /* No media query since this is the default in Bootstrap */
 

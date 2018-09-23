@@ -1,0 +1,23 @@
+.register {
+    max-width: 330px;
+    margin: 0 auto;
+    padding-top: 35px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-control {
+    display: inline-block;
+    width: 100%;
+    max-width: 265px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0;
+}

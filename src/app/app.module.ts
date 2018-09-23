@@ -8,9 +8,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
-import { MockBackend } from '@angular/http/testing';
-import { MockProvider } from './helpers/mock';
 import { HttpModule, Http, BaseRequestOptions } from '@angular/http';
 
 
@@ -21,28 +20,29 @@ import { CuttingCalcComponent } from './cutting-calc/cutting-calc.component';
 import { WarehouseComponent } from './warehouse/warehouse.component';
 import { PlannerComponent } from './planner/planner.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ContactsComponent } from './contacts/contacts.component';
+import { ContactComponent } from './contact/contact.component';
 import { NewsComponent } from './news/news.component';
 import { KhpiComponent } from './khpi/khpi.component';
 import { ChairComponent } from './chair/chair.component';
 import { ClusterComponent } from './cluster/cluster.component';
 import { LoginComponent } from './login/login.component';
-
-
-import { AuthService } from './services/auth.service';
-import { AuthGuard } from './services/auth-guard.service';
-import { AdminComponent } from './admin/admin.component';
-import { AdminAuthGuard } from './services/admin-auth-guard.service';
-import { OrderService } from './services/order.service';
-
-
-import { NewsService } from './services/news.service';
 import { KnowledgeComponent } from './knowledge/knowledge.component';
 import { ParticipateComponent } from './participate/participate.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ManufacturingComponent } from './manufacturing/manufacturing.component';
 import { ScienceComponent } from './science/science.component';
 import { FooterComponent } from './footer/footer.component';
+import { RegisterComponent } from './register/register.component';
+import { UsersComponent } from './users/users.component';
+import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
+
+
+import { AuthService } from './services/auth.service';
+import { NewsService } from './services/news.service';
+import { MessagesService } from './services/messages.service';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -60,19 +60,23 @@ export function HttpLoaderFactory(http: HttpClient) {
     WarehouseComponent,
     PlannerComponent,
     NotFoundComponent,
-    ContactsComponent,
+    ContactComponent,
     NewsComponent,
     KhpiComponent,
     ChairComponent,
     ClusterComponent,
     LoginComponent,
-    AdminComponent,
     KnowledgeComponent,
     ParticipateComponent,
     ProjectsComponent,
     ManufacturingComponent,
     ScienceComponent,
     FooterComponent,
+    RegisterComponent,
+    DashboardComponent,
+    UsersComponent,
+    MessagesComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,9 +97,27 @@ export function HttpLoaderFactory(http: HttpClient) {
         component: HomeComponent
       },
       {
-        path: 'admin',
-        component: AdminComponent,
-        canActivate: [AuthGuard, AdminAuthGuard]
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'users',
+        component: UsersComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'messages',
+        component: MessagesComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       },
       {
         path: 'login',
@@ -147,22 +169,20 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       {
         path: 'contacts',
-        component: ContactsComponent
+        component: ContactComponent
       },
       {
         path: '**',
         component: NotFoundComponent
       },
     ]),
+    FlashMessagesModule.forRoot(),
   ],
   providers: [
-    NewsService,
-    OrderService,
-    AuthService,
     AuthGuard,
-    AdminAuthGuard,
-    MockProvider,
-    MockBackend,
+    NewsService,
+    AuthService,
+    MessagesService,
     BaseRequestOptions
   ],
   bootstrap: [AppComponent]

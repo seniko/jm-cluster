@@ -1,6 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import {TranslateService} from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'navbar',
@@ -13,7 +15,9 @@ export class NavbarComponent implements OnInit {
   public isFixed = true;
   public innerWidth: any;
 
-  constructor(public authService: AuthService, public translate: TranslateService) {}
+  constructor(public authService: AuthService, 
+    public translate: TranslateService, 
+    public _flashMessagesService: FlashMessagesService, public router: Router) {}
 
   @HostListener('window:scroll', ['$event'])
     onScroll($event) {
@@ -35,6 +39,13 @@ export class NavbarComponent implements OnInit {
     if (innerWidth < 768) {
       this.isFixed = false;
     } else this.isFixed = true;
+  }
+
+  onLogout() {
+    this.authService.logout();
+    this._flashMessagesService.show('Logged out.', {cssClass: 'alert-success alert-container container flashfade', timeout: 5000});
+    this.router.navigate(['/login']);
+    return false;
   }
 
 }
