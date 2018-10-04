@@ -10,7 +10,7 @@
     "CLUSTER": "<span class='h6 mb-0'>Cluster</span><div class='text-small text-muted'>Engineering, modeling</div><div class='text-small text-muted'>Front-end implementation</div><div class='text-small text-muted'>Back-end implementation</div>",
     "CHAIR": "<span class='h6 mb-0'>Department</span><p class='text-small text-muted'>More about the department</p>",
     "KHPI": "<span class='h6 mb-0'>NTU \"KhPI\"</span><p class='text-small text-muted'>More about university</p>",
-    "SCIENCE": "Education&Science",
+    "SCIENCE": "Science",
     "MANUFACTURING": "ERP Systems",
     "TOOLS": "Microservices",
     "PARTICIPANTS": "Participants",
@@ -20,7 +20,7 @@
   "HOME": {
     "INTRO": "Java International Machine-building<br> Cluster of open Information Technology",
     "SECONDARY": "Single platform at the junction of engineering and Java, Web technologies",
-    "JAVAMACH": "<h5 class='mt-0 mb-3 text-center text-md-left'>JavaMach cluster</h5><p>Cluster that unites organizations and people on a voluntary basis on a single principle: using of the Java programming language and Web technologies to solve the major problems of and industry.</p><p class='mb-0'>Our goal is to create a unified practical, scientific, educational platform on the main principles of Industry 4.0</p>",    
+    "JAVAMACH": "<h5 class='mt-0 mb-3 text-center text-md-left'>JM cluster</h5><p>Cluster that unites organizations and people on a voluntary basis on a single principle: using of the Java programming language and Web technologies to solve the major problems of and industry.</p><p class='mb-0'>Our goal is to create a unified practical, scientific, educational platform on the main principles of Industry 4.0</p>",    
     "INDUSTRY4": "<h5 class='mt-0 mb-3 text-center text-md-left'>Industry 4.0</h5><p>Transformation into a completely digital manufacturing, managed by intelligent systems that interact with the environment, moving beyond the enterprise to form a global industrial network.</p><p class='mb-0'>It includes Big Data, on the basis of which solutions are formed.</p><p class='mb-0'>Internet of Things (IoT) - interaction of modules based on network protocols and sensors. ERP system of the new generation.</p>",
     "ERP": "<h5 class='mt-0 mb-3 text-center text-md-left'>ERP Systems</h5><p>Implement the principle of visibility. Allow to see the company's picture in real time and make the necessary decisions. Сonsists of autonomous services, that has its own purposes. The data is stored in the cloud to which the ERP system is connected.</p>",
     "COPYRIGHT": "© 2018 JM cluster. All rights reserved." 

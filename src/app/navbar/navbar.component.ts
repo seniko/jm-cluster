@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import {TranslateService} from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'navbar',
@@ -15,9 +16,13 @@ export class NavbarComponent implements OnInit {
   public isFixed = true;
   public innerWidth: any;
 
+  private state: boolean;
+
   constructor(public authService: AuthService, 
     public translate: TranslateService, 
-    public _flashMessagesService: FlashMessagesService, public router: Router) {}
+    public _flashMessagesService: FlashMessagesService, 
+    public router: Router,
+    private dataService: DataService) {}
 
   @HostListener('window:scroll', ['$event'])
     onScroll($event) {
@@ -46,6 +51,10 @@ export class NavbarComponent implements OnInit {
     this._flashMessagesService.show('Logged out.', {cssClass: 'alert-success alert-container container flashfade', timeout: 5000});
     this.router.navigate(['/login']);
     return false;
+  }
+
+  newState() {
+    this.dataService.changeState(false);
   }
 
 }

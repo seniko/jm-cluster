@@ -9,6 +9,8 @@ import { LocationStrategy } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  isAdminMode: boolean = false;
+
   isPopState = false;
 
   constructor(private translate: TranslateService, private router: Router, private locStrat: LocationStrategy) {

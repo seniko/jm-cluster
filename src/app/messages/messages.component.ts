@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from '../services/messages.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-messages',
@@ -9,7 +10,7 @@ import { MessagesService } from '../services/messages.service';
 export class MessagesComponent implements OnInit {
   messages: any[];
 
-  constructor(private messagesService: MessagesService) { }
+  constructor(private messagesService: MessagesService, private _flashMessagesService: FlashMessagesService) { }
 
   ngOnInit() {
     this.messagesService.getMessages().subscribe(list => {
@@ -21,14 +22,19 @@ export class MessagesComponent implements OnInit {
   }
 
   onRemove(message) {
-    this.messagesService.removeMessage(message._id).subscribe(data => {
-      console.log(data.msg);
-    }, err => {
-      console.log(err);
-      return false;
-    });
-    const index = this.messages.indexOf(message);
-    this.messages.splice(index, 1);
+    let confirmDelete = confirm("Do you want to delete this message?");
+    
+    if (confirmDelete) {
+      this.messagesService.removeMessage(message._id).subscribe(data => {
+        this._flashMessagesService.show(data.msg, {cssClass: 'alert-success alert-container container flashfade', timeout: 5000});
+      }, err => {
+        console.log(err);
+        return false;
+      });
+      const index = this.messages.indexOf(message);
+      this.messages.splice(index, 1);
+    }
+    
   }
 
 }

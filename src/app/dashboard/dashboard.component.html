@@ -3,22 +3,37 @@
 <div class="dashboard-container">
   <div class="row">
     <div class="col-sm-6">
-        <div class="card mb-3">
+        <div class="card bg-light border-warning mb-3">
             <div class="card-body">
                 <h5 class="text-muted card-title"><i class="fas fa-envelope text-secondary"></i> Messages</h5>
-                <p class="card-text">List of messages got from contact page.</p>
+                <p class="card-text d-flex justify-content-between align-items-center">
+                    List of messages got from contact page<span class="badge badge-secondary badge-pill">{{ numberOfMessages }}</span>
+                </p>
                 <a routerLink="/messages" class="btn btn-warning">Messages &#8594;</a>
             </div>
         </div>
     </div>
     
-
     <div class="col-sm-6">
-        <div class="card mb-3">
+        <div class="card bg-light border-warning mb-3">
             <div class="card-body">
                 <h5 class="text-muted card-title"><i class="fas fa-users text-secondary"></i> Users</h5>
-                <p class="card-text">List of registered users.</p>
+                <p class="card-text d-flex justify-content-between align-items-center">
+                    List of registered users<span class="badge badge-secondary badge-pill">{{ numberOfUsers }}</span>
+                </p>
                 <a routerLink="/users" class="btn btn-warning">Users &#8594;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="card bg-light border-warning mb-3">
+            <div class="card-body">
+                <h5 class="text-muted card-title"><i class="fas fa-project-diagram text-secondary"></i> Projects</h5>
+                <p class="card-text d-flex justify-content-between align-items-center">
+                    List of projects<span class="badge badge-secondary badge-pill">{{ numberOfProjects }}</span>
+                </p>
+                <a routerLink="/projects" (click)="newState()" class="btn btn-warning">Projects &#8594;</a>
             </div>
         </div>
     </div>

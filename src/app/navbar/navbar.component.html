@@ -2,7 +2,7 @@
   <div class="container">
 
     <a class="navbar-brand" routerLink="/">
-      <img src="/assets/img/Logo-3_JMcluster.png" class="logo" alt="Logo">
+      <img src="/assets/img/Logo-3_JMcluster.svg" class="logo" alt="Logo">
     </a>
     <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" [attr.aria-expanded]="!isCollapsed">
         <span class="navbar-toggler-icon"></span>
@@ -60,7 +60,10 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/science"><span class="icon-scientist_1"></span> {{ 'NAVBAR.SCIENCE' | translate }}</a>
         </li>
-        
+        <li class="divider-vertical"></li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/projects" (click)="newState()"><span class="icon-projects"></span> {{ 'NAVBAR.PROJECTS' | translate }}</a>
+        </li>
         <li class="divider-vertical"></li>
         <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">
           <a ngbDropdownToggle class="nav-link dropdown-toggle"><span class="icon-calculator"></span> {{ 'NAVBAR.TOOLS' | translate }}</a>
@@ -86,10 +89,7 @@
             </a>
           </div>
         </li>
-        <li class="divider-vertical"></li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/projects"><span class="icon-projects"></span> {{ 'NAVBAR.PROJECTS' | translate }}</a>
-        </li>
+        
         <li class="divider-vertical"></li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/participate"><span class="icon-transfer"></span> {{ 'NAVBAR.PARTICIPANTS' | translate }}</a>

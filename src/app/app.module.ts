@@ -40,9 +40,10 @@ import { ProfileComponent } from './profile/profile.component';
 
 
 import { AuthService } from './services/auth.service';
-import { NewsService } from './services/news.service';
+import { ProjectsService } from './services/projects.service';
 import { MessagesService } from './services/messages.service';
 import { AuthGuard } from './guards/auth.guard';
+import { DataService } from './services/data.service';
 
 
 
@@ -165,7 +166,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       {
         path: 'projects',
-        component: NewsComponent
+        component: ProjectsComponent
       },
       {
         path: 'contacts',
@@ -180,9 +181,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     AuthGuard,
-    NewsService,
+    ProjectsService,
     AuthService,
     MessagesService,
+    DataService,
     BaseRequestOptions
   ],
   bootstrap: [AppComponent]

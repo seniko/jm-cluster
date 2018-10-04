@@ -22,10 +22,13 @@ body {
 .eastern-blue {
     color: #1395ba;
 }
-
-.btn {
-    border: none;
+.text-tomato {
+    color: #db4e5c;
 }
+
+/* .btn {
+    border: none;
+} */
 /*.btn-primary {
     background-color: #00b0ff;
     background-color: hsla(30, 92%, 55%, 0.7);
@@ -40,7 +43,8 @@ body {
 }
 
 .alert-container {
-    position: absolute;
+    position: fixed;
+    z-index: 11000;
 }
 
 .flashfade {
