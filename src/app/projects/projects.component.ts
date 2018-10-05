@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ProjectsService } from '../services/projects.service';
 import { AuthService} from '../services/auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';

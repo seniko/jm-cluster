@@ -7,6 +7,8 @@
         <th scope="col">id</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
+        <th scope="col">Reg. date</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +16,10 @@
         <th scope="row">{{ user._id }}</th>
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
+        <td>{{ user.date | date:'dd-MM-yy HH:mm:ss' }}</td>
+        <td>
+          <i (click)="onDelete(user)" class="delete fas fa-trash-alt fa-lg text-tomato"></i>
+        </td>
       </tr>
     </tbody>
   </table>

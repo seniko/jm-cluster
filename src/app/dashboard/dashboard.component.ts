@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { UsersService } from '../services/users.service';
 import { MessagesService } from '../services/messages.service';
 import { ProjectsService } from '../services/projects.service';
 import { DataService } from '../services/data.service';
@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
 
   state: boolean;
 
-  constructor(private authService: AuthService, 
+  constructor(private usersService: UsersService, 
   private messagesService: MessagesService, 
   private projectsService: ProjectsService,
   private dataService: DataService) { }
@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
       console.log(err);
       return false;
     });
-    this.authService.getUsers().subscribe(list => {
+    this.usersService.getUsers().subscribe(list => {
       this.numberOfUsers = list.length;
     }, err => {
       console.log(err);

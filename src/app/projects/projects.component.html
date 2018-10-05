@@ -17,51 +17,51 @@
 </div>
 
 <div class="modal-bg" (click)="overlayClicked($event)" [hidden]="!editMode && !addMode">
-    <div class="modal mx-auto" #modal>
-            <i class="fas fa-times close" (click)="editMode = false; addMode = false"></i>
-            <h5 *ngIf="editMode" class="text-muted mb-4">Edit project</h5>
-            <h5 *ngIf="addMode" class="text-muted mb-4">Add project</h5>
-            <form ngForm #form="ngForm">
-                
-                <div class="form-group">
-                    <input type="text" class="form-control" ngModel name="imgUrl" #imgUrl="ngModel" placeholder="Image link *" minlength="2" maxlength="2000" [(ngModel)]="imgUrlVal">
-                    <div class="alert alert-danger" *ngIf="!imgUrl.valid">
-                        <div *ngIf="imgUrl.errors.minlength">
-                        Url should be minimum {{imgUrl.errors.minlength.requiredLength}} characters
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <input type="text" class="form-control" ngModel name="title" #title="ngModel" placeholder="Project title (required)" required minlength="2" maxlength="2000" [(ngModel)]="titleVal">
-                    <div class="alert alert-danger" *ngIf="!title.valid && title.touched">
-                        Project title is required
-                    </div>
-                </div>
-            
-                <div class="form-group">
-                <textarea class="form-control" ngModel name="text" #text="ngModel" rows="3" placeholder="Project main text (required)" required minlength="30" maxlength="3000" [(ngModel)]="textVal"></textarea>
-                <div class="alert alert-danger" *ngIf="!text.valid && text.touched">
-                    <div *ngIf="text.errors.required">
-                        Project text is required
-                    </div>
-                    <div *ngIf="text.errors.minlength">
-                        Project should be minimum {{text.errors.minlength.requiredLength}} characters
-                    </div>
-                </div>
-                </div>
+  <div class="modal mx-auto" #modal>
+          <i class="fas fa-times close" (click)="editMode = false; addMode = false"></i>
+          <h5 *ngIf="editMode" class="text-muted mb-4">Edit project</h5>
+          <h5 *ngIf="addMode" class="text-muted mb-4">Add project</h5>
+          <form ngForm #form="ngForm">
+              
+              <div class="form-group">
+                  <input type="text" class="form-control" ngModel name="imgUrl" #imgUrl="ngModel" placeholder="Image link *" minlength="2" maxlength="2000" [(ngModel)]="imgUrlVal">
+                  <div class="alert alert-danger" *ngIf="!imgUrl.valid">
+                      <div *ngIf="imgUrl.errors.minlength">
+                      Url should be minimum {{imgUrl.errors.minlength.requiredLength}} characters
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="form-group">
+                  <input type="text" class="form-control" ngModel name="title" #title="ngModel" placeholder="Project title (required)" required minlength="2" maxlength="2000" [(ngModel)]="titleVal">
+                  <div class="alert alert-danger" *ngIf="!title.valid && title.touched">
+                      Project title is required
+                  </div>
+              </div>
+          
+              <div class="form-group">
+              <textarea class="form-control" ngModel name="text" #text="ngModel" rows="3" placeholder="Project main text (required)" required minlength="30" maxlength="3000" [(ngModel)]="textVal"></textarea>
+              <div class="alert alert-danger" *ngIf="!text.valid && text.touched">
+                  <div *ngIf="text.errors.required">
+                      Project text is required
+                  </div>
+                  <div *ngIf="text.errors.minlength">
+                      Project should be minimum {{text.errors.minlength.requiredLength}} characters
+                  </div>
+              </div>
+              </div>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" ngModel name="url" #url="ngModel" placeholder="Project link *" minlength="2" maxlength="2000" [(ngModel)]="urlVal">
-                    <div class="alert alert-danger" *ngIf="!url.valid">
-                        <div *ngIf="url.errors.minlength">
-                            Url should be minimum {{url.errors.minlength.requiredLength}} characters
-                        </div>
-                    </div>
-                </div>
-            
-                <button (click)="addMode ? onPost() : onUpdate()" type="submit" class="btn btn-primary" [disabled]="!form.valid">{{modeName}}</button>
-                <small id="emailHelp" class="form-text text-muted mt-3">* - fields are optional</small>
-            </form>
-    </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" ngModel name="url" #url="ngModel" placeholder="Project link *" minlength="2" maxlength="2000" [(ngModel)]="urlVal">
+                  <div class="alert alert-danger" *ngIf="!url.valid">
+                      <div *ngIf="url.errors.minlength">
+                          Url should be minimum {{url.errors.minlength.requiredLength}} characters
+                      </div>
+                  </div>
+              </div>
+          
+              <button (click)="addMode ? onPost() : onUpdate()" type="submit" class="btn btn-primary" [disabled]="!form.valid">{{modeName}}</button>
+              <small id="emailHelp" class="form-text text-muted mt-3">* - fields are optional</small>
+          </form>
+  </div>
 </div>

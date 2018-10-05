@@ -57,15 +57,6 @@ export class AuthService {
     return tokenNotExpired('id_token');
   }
 
-  getUsers() {
-    let headers = new Headers();
-    this.loadToken();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', this.authToken);
-    return this.http.get('http://localhost:3000/users/list', {headers: headers})
-    .map(res => res.json());
-  }
-
   isAdmin() {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user.isAdmin) {
