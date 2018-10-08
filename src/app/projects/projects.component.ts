@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../services/projects.service';
-import { AuthService} from '../services/auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { NgForm } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
-
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-projects',
@@ -14,21 +13,39 @@ import { DataService } from '../services/data.service';
 export class ProjectsComponent implements OnInit {
   projects: any[];
   project: any;
-  modeName: string;
-  editMode: boolean = false;
-  addMode: boolean = false;
-
-  urlVal: string;
-  imgUrlVal: string;
-  titleVal: string;
-  textVal: string;
 
   state: boolean;
 
-  constructor(public projectService: ProjectsService, 
-    public authService: AuthService, 
+  constructor(public projectService: ProjectsService,
     public _flashMessagesService: FlashMessagesService,
-    private dataService: DataService) { 
+    private authService: AuthService,
+    private dataService: DataService,
+    private modalService: ModalService) { 
+
+      this.modalService.onPost.subscribe(parsedForm => {
+        console.log(parsedForm);
+        this.projectService.postProject(parsedForm).subscribe(project => {
+          if (project) {
+            this.projects.push(project);
+            this._flashMessagesService.show("Added.", {cssClass: 'alert-success alert-container container flashfade', timeout: 5000});
+          }
+        }, err => {
+            this._flashMessagesService.show('Something went wrong.', {cssClass: 'alert-danger alert-container container flashfade', timeout: 5000});
+        });
+      });
+
+      this.modalService.onUpdate.subscribe(parsedForm => {
+        console.log(parsedForm)
+        this.projectService.updateProject(this.project._id, parsedForm).subscribe(project => {
+          if (project) {
+            const index = this.projects.indexOf(this.project);
+            this.projects.splice(index, 1, project);
+            this._flashMessagesService.show("Updated.", {cssClass: 'alert-success alert-container container flashfade', timeout: 5000});
+          }
+        }, err => {
+          this._flashMessagesService.show('Something went wrong.', {cssClass: 'alert-danger alert-container container flashfade', timeout: 5000});
+        });
+      });
   }
 
   ngOnInit() {
@@ -42,77 +59,11 @@ export class ProjectsComponent implements OnInit {
     this.dataService.currentState.subscribe(state => {
       this.state = state;
     });
+    // this.modalService.changeModalFor("Projects");
   }
 
-  @ViewChild('form') form: NgForm;
-  parseForm() {
-    let parsedFormValue = this.form.value;
 
-    for(let prop in parsedFormValue) {
-      if ((parsedFormValue[prop] === null) || (parsedFormValue[prop] === "")) {
-        delete parsedFormValue[prop];
-      }
-    }
-    return  parsedFormValue;
-  }
   
-
-  @ViewChild('modal') modal: ElementRef;
-  overlayClicked(event) {
-    if (event.path.indexOf(this.modal.nativeElement) === -1) {
-      this.editMode = false;
-      this.addMode = false;
-      // this.modal.nativeElement.style = 'display: none';
-    }
-  }
-  
-
-  onEdit(project) {
-    this.editMode = true;
-    this.modeName = "Update project";
-    this.project = project;
-
-    this.urlVal = project.url;
-    this.imgUrlVal = project.imgUrl;
-    this.titleVal = project.title;
-    this.textVal = project.text;
-  }
-
-  onAdd() {
-    this.addMode = true;
-    this.modeName = "Add project";    
-    this.form.reset();
-  }
-
-  onPost() {
-    this.projectService.postProject(this.parseForm()).subscribe(project => {
-      if (project) {
-        this.projects.push(project);
-
-        this.addMode = false;
-        this._flashMessagesService.show("Project added.", {cssClass: 'alert-success alert-container container flashfade', timeout: 5000});
-      }
-    }, err => {
-        this._flashMessagesService.show('Something went wrong.', {cssClass: 'alert-danger alert-container container flashfade', timeout: 5000});
-    });
-
-  }
-
-  onUpdate() {
-    const index = this.projects.indexOf(this.project);
-    this.projectService.updateProject(this.project._id, this.parseForm()).subscribe(project => {
-      if (project) {
-        this.projects.splice(index, 1, project);
-
-        this.editMode = false;
-        this._flashMessagesService.show("Project updated.", {cssClass: 'alert-success alert-container container flashfade', timeout: 5000});
-
-      }
-    }, err => {
-      this._flashMessagesService.show('Something went wrong.', {cssClass: 'alert-danger alert-container container flashfade', timeout: 5000});
-    });
-  }
-
   onDelete(project) {
     const confirmMessage = confirm("Do you want to delete this project?");
 
@@ -128,7 +79,17 @@ export class ProjectsComponent implements OnInit {
         return false;
       });
     }
-    
   }
+
+  onEdit(project) {
+    this.project = project;
+    this.modalService.onEdit.emit({editMode: true, modeName: "Update project", project: project});
+  }
+
+  onAdd() {
+    this.modalService.onAdd.emit({addMode: true, modeName: "Add Project"});
+  }
+
+    
 
 }

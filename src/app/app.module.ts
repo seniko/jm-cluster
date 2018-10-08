@@ -37,7 +37,7 @@ import { UsersComponent } from './users/users.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ModalCmsComponent } from './modal-cms/modal-cms.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 import { AuthService } from './services/auth.service';
@@ -46,6 +46,7 @@ import { MessagesService } from './services/messages.service';
 import { AuthGuard } from './guards/auth.guard';
 import { DataService } from './services/data.service';
 import { UsersService } from './services/users.service';
+import { ModalService } from './services/modal.service';
 
 
 
@@ -80,7 +81,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UsersComponent,
     MessagesComponent,
     ProfileComponent,
-    ModalCmsComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -189,6 +190,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MessagesService,
     DataService,
     UsersService,
+    ModalService,
     BaseRequestOptions
   ],
   bootstrap: [AppComponent]
