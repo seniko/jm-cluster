@@ -48,6 +48,8 @@ import { DataService } from './services/data.service';
 import { UsersService } from './services/users.service';
 import { ModalService } from './services/modal.service';
 
+import { NgxCaptchaModule } from 'ngx-captcha';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -182,6 +184,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     ]),
     FlashMessagesModule.forRoot(),
+    NgxCaptchaModule.forRoot({
+      reCaptcha2SiteKey: '6LfoF4AUAAAAAFSwD4W9OASRazAkOEZr7KfIm3s_'
+    }),
   ],
   providers: [
     AuthGuard,

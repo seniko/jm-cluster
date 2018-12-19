@@ -1,6 +1,6 @@
-<h3 class="text-muted page-header mb-5">Contact</h3>
-
-<div class="row">
+<h3 class="text-muted page-header">Contact</h3>
+<small id="emailHelp" class="form-text text-muted">If you have any questions or suggestions just write us using the form below.</small>
+<div class="row mt-5">
 <div class="col-sm-6">
 <div class="form-container">
   <form ngForm #form="ngForm" (ngSubmit)="onSubmit(form)">
@@ -54,13 +54,26 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
-  
+    <ngx-recaptcha2 #captchaElem 
+        (success)="handleSuccess($event)">
+    </ngx-recaptcha2>
+
+    <!-- <ngx-recaptcha2
+        [size]="size"
+        [hl]="lang"
+        [theme]="theme"
+        [type]="type"
+        (expire)="handleExpire()"
+        (load)="handleLoad()"
+        (success)="handleSuccess($event)">
+    </ngx-recaptcha2> -->
+
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="!form.valid">Submit</button>
   </form>
 </div>
 </div>
 
 <div class="contact-via col-sm-6 d-flex justify-content-center align-items-center">
-  <p class="py-4">Or contact us via mail: <a href="mailto:javamachcluster@gmail.comu">javamachcluster@gmail.com</a></p>
+  <p class="py-4">Or contact us via email: <a href="mailto:javamachcluster@gmail.comu">javamachcluster@gmail.com</a></p>
 </div>
 </div>

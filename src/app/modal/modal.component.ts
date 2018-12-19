@@ -3,8 +3,6 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { NgForm } from '@angular/forms';
 import { ModalService } from '../services/modal.service';
 
-import { ProjectsService } from '../services/projects.service';
-
 
 @Component({
   selector: 'modal',
@@ -24,9 +22,7 @@ export class ModalComponent implements OnInit {
 
 
   constructor(public _flashMessagesService: FlashMessagesService, 
-    public modalService: ModalService,
-    
-    public projectService: ProjectsService) { 
+    public modalService: ModalService) { 
 
       this.modalService.onAdd.subscribe(data => {
         this.addMode = data.addMode;
@@ -68,7 +64,6 @@ export class ModalComponent implements OnInit {
     if (event.path.indexOf(this.modal.nativeElement) === -1) {
       this.editMode = false;
       this.addMode = false;
-      // this.modal.nativeElement.style = 'display: none';
     }
   }
 
