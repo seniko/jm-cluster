@@ -17,7 +17,14 @@
                 Password is not filled or invalid
             </div>
         </div>
-        <button class="btn btn-lg btn-primary btn-block mt-4" type="submit" [disabled]="!email.valid && email.touched || !password.valid && password.touched">Вход</button>
+
+        <div class="mt-3">
+          <ngx-recaptcha2 class="register-login-recaptcha" #captchaElem 
+            (success)="handleSuccess($event)">
+          </ngx-recaptcha2>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block mt-3" type="submit" [disabled]="!email.valid && email.touched || !password.valid && password.touched">Вход</button>
   </form>
 
 </div>

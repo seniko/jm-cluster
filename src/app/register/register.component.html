@@ -52,8 +52,12 @@
                 </div>
             </div>
         </div>
-  
-        <button type="submit" class="btn btn-lg btn-block mt-4 btn-primary" [disabled]="!f.valid">Регистрация</button>
+
+        <ngx-recaptcha2 class="register-login-recaptcha" #captchaElem 
+            (success)="handleSuccess($event)">
+        </ngx-recaptcha2>
+
+        <button type="submit" class="btn btn-lg btn-block mt-3 btn-primary" [disabled]="!f.valid">Регистрация</button>
       </form>
   
     </div>

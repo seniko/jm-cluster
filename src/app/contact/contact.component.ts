@@ -55,15 +55,6 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  getResponse(): void {
-    this.captchaResponse = this.captchaElem.getResponse();
-    if (!this.captchaResponse) {
-      alert('There is no selected captcha - have you submitted captcha?');
-    } else {
-      alert(this.captchaResponse);
-    }
-  }
-
   handleSuccess(captchaResponse: string): void {
     this.captchaSuccess = true;
     this.captchaResponse = captchaResponse;
@@ -72,5 +63,5 @@ export class ContactComponent implements OnInit {
   reloadCaptcha(): void {
     this.captchaElem.reloadCaptcha();
   }
-
+  
 }
