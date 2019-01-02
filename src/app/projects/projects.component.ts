@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProjectsService } from '../services/projects.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
 import { ModalService } from '../services/modal.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, OnDestroy {
   projects: any[];
   project: any;
 
   state: boolean;
+  parsedFormSubs: Subscription;
 
   constructor(public projectService: ProjectsService,
     public _flashMessagesService: FlashMessagesService,
@@ -22,11 +24,11 @@ export class ProjectsComponent implements OnInit {
     private dataService: DataService,
     private modalService: ModalService) { 
 
-      this.modalService.onPost.subscribe(parsedForm => {
-        console.log(parsedForm);
+      this.parsedFormSubs = this.modalService.onPost.subscribe(parsedForm => {
         this.projectService.postProject(parsedForm).subscribe(project => {
           if (project) {
-            this.projects.push(project);
+            //this.projects.push(project);
+            this.projects.unshift(project);
             this._flashMessagesService.show("Added.", {cssClass: 'alert-success alert-container container flashfade', timeout: 5000});
           }
         }, err => {
@@ -34,9 +36,8 @@ export class ProjectsComponent implements OnInit {
         });
       });
 
-      this.modalService.onUpdate.subscribe(parsedForm => {
-        console.log(parsedForm)
-        this.projectService.updateProject(this.project._id, parsedForm).subscribe(project => {
+      this.modalService.onUpdate.subscribe(data => {
+        this.projectService.updateProject(data._id, data.parsedForm).subscribe(project => {
           if (project) {
             const index = this.projects.indexOf(this.project);
             this.projects.splice(index, 1, project);
@@ -59,11 +60,14 @@ export class ProjectsComponent implements OnInit {
     this.dataService.currentState.subscribe(state => {
       this.state = state;
     });
-    // this.modalService.changeModalFor("Projects");
   }
 
+  ngOnDestroy() {
+    if(this.parsedFormSubs) {
+      this.parsedFormSubs.unsubscribe();
+    }
+  }
 
-  
   onDelete(project) {
     const confirmMessage = confirm("Do you want to delete this project?");
 

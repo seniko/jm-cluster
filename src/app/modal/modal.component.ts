@@ -73,7 +73,7 @@ export class ModalComponent implements OnInit {
   }
 
   onUpdate() {
-    this.modalService.onUpdate.emit(this.parseForm());
+    this.modalService.onUpdate.emit({_id: this.project._id, parsedForm: this.parseForm()});
     this.editMode = false;
   }
 

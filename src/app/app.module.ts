@@ -185,7 +185,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ]),
     FlashMessagesModule.forRoot(),
     NgxCaptchaModule.forRoot({
-      reCaptcha2SiteKey: '6LfoF4AUAAAAAFSwD4W9OASRazAkOEZr7KfIm3s_'
+      reCaptcha2SiteKey: '6LeU8oQUAAAAAItHD75RgVXHIl9Z-d9fRClX9Oip'
     }),
   ],
   providers: [
