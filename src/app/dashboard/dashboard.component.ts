@@ -3,6 +3,7 @@ import { UsersService } from '../services/users.service';
 import { MessagesService } from '../services/messages.service';
 import { ProjectsService } from '../services/projects.service';
 import { DataService } from '../services/data.service';
+import { ArticlesService } from '../services/articles.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,12 +14,14 @@ export class DashboardComponent implements OnInit {
   numberOfUsers: number;
   numberOfMessages: number;
   numberOfProjects: number;
+  numberOfArticles: number;
 
   state: boolean;
 
   constructor(private usersService: UsersService, 
   private messagesService: MessagesService, 
   private projectsService: ProjectsService,
+  private articlesService: ArticlesService,
   private dataService: DataService) { }
 
   ngOnInit() {
@@ -36,6 +39,12 @@ export class DashboardComponent implements OnInit {
     });
     this.projectsService.getProjects().subscribe(list => {
       this.numberOfProjects = list.length;
+    }, err => {
+      console.log(err);
+      return false;
+    });
+    this.articlesService.getArticles().subscribe(list => {
+      this.numberOfArticles = list.length;
     }, err => {
       console.log(err);
       return false;

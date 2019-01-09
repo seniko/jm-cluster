@@ -37,6 +37,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
       });
 
       this.modalService.onUpdate.subscribe(data => {
+        if (data.modeName !== "Update project") return;
         this.projectService.updateProject(data._id, data.parsedForm).subscribe(project => {
           if (project) {
             const index = this.projects.indexOf(this.project);
@@ -87,7 +88,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
 
   onEdit(project) {
     this.project = project;
-    this.modalService.onEdit.emit({editMode: true, modeName: "Update project", project: project});
+    this.modalService.onEdit.emit({editMode: true, modeName: "Update project", item: project});
   }
 
   onAdd() {

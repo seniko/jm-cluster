@@ -1,1 +1,36 @@
+
 <h3 class="text-muted page-header mb-4">Научная деятельность</h3>
+<div class="science-container"><div class="row">
+    <div class="col-sm-8 mx-auto">
+<p>Основные направления научной деятельности:</p>
+<ul>
+    <li>моделирование быстропротекающих физических процессов;</li>
+    <li>технологии автоматизированого управления технологическими процессами;</li>
+    <li>технологическое обеспечение High Speed Machining;</li>
+    <li>интеллектуальные системы инженерного расчета;</li>
+    <li>разработка и внедрение ERP систем и компонентов на Open Source технологиях и многое другое.</li>
+</ul>
+<p>Некоторые публикации:</p></div></div>
+
+<div class="row">
+  <div class="col-sm-8 mx-auto">
+    <button *ngIf="authService.loggedIn() && authService.isAdmin() && state" (click)="onAdd()" class="btn btn-warning d-flex mx-auto mb-4">Add article</button>
+
+    <div class="card mb-4" *ngFor="let article of articles" >
+        <div *ngIf="authService.loggedIn() && authService.isAdmin() && state" class="manage-state">
+            <i (click)="onEdit(article)" class="edit fas fa-edit fa-lg text-warning"></i>
+            <i (click)="onDelete(article)" class="delete fas fa-trash-alt fa-lg text-tomato"></i>    
+        </div>
+        <img *ngIf="article.imgUrl" class="card-img-top" src="{{article.imgUrl}}" alt="Article image">
+        <div class="card-body">
+        <h5 class="card-title">{{article.title}}</h5>
+        <p class="card-text">{{article.text}} <br><a *ngIf="article.url" href="{{article.url}}" class="" target="_blank">Подробнее >></a></p>
+        
+      </div>
+      <!-- <div class="card-footer text-muted d-flex">
+        <span class="ml-auto">{{ article.date | date:'dd MMM, yy' }}</span>
+      </div> -->
+    </div>
+  </div>
+</div>
+</div>

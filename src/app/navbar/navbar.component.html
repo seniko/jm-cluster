@@ -50,7 +50,7 @@
           </div>
         </li> -->
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/cluster"><span class="icon-network"></span> {{ 'NAVBAR.JMCLUSTER' | translate }}</a>
+          <a class="nav-link" routerLink="/cluster"><span class="icon-network"></span> {{ 'NAVBAR.STRUCTURE' | translate }}</a>
         </li>
         <li class="divider-vertical"></li>
         <li class="nav-item" routerLinkActive="active">
@@ -58,13 +58,13 @@
         </li>
         <li class="divider-vertical"></li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/science"><span class="icon-scientist_1"></span> {{ 'NAVBAR.SCIENCE' | translate }}</a>
+            <a class="nav-link" routerLink="/projects" (click)="newState()"><span class="icon-projects"></span> {{ 'NAVBAR.PROJECTS' | translate }}</a>
         </li>
         <li class="divider-vertical"></li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/projects" (click)="newState()"><span class="icon-projects"></span> {{ 'NAVBAR.PROJECTS' | translate }}</a>
+            <a class="nav-link" routerLink="/science" (click)="newState()"><span class="icon-scientist_1"></span> {{ 'NAVBAR.SCIENCE' | translate }}</a>
         </li>
-        <li class="divider-vertical"></li>
+        <!-- <li class="divider-vertical"></li>
         <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">
           <a ngbDropdownToggle class="nav-link dropdown-toggle"><span class="icon-calculator"></span> {{ 'NAVBAR.TOOLS' | translate }}</a>
           <div ngbDropdownMenu class="dropdown-menu">
@@ -88,7 +88,7 @@
               <p class="text-small text-muted">Техническая информация</p>
             </a>
           </div>
-        </li>
+        </li> -->
         
         <li class="divider-vertical"></li>
         <li class="nav-item" routerLinkActive="active">

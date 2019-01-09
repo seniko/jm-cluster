@@ -13,7 +13,7 @@ export class ModalComponent implements OnInit {
   modeName: string;
   editMode: boolean = false;
   addMode: boolean = false;
-  project: any;
+  item: any;
 
   urlVal: string;
   imgUrlVal: string;
@@ -33,12 +33,12 @@ export class ModalComponent implements OnInit {
       this.modalService.onEdit.subscribe(data => {
         this.editMode = data.editMode;
         this.modeName = data.modeName;
-        this.project = data.project;
+        this.item = data.item;
 
-        this.urlVal = data.project.url;
-        this.imgUrlVal = data.project.imgUrl;
-        this.titleVal = data.project.title;
-        this.textVal = data.project.text;
+        this.urlVal = data.item.url;
+        this.imgUrlVal = data.item.imgUrl;
+        this.titleVal = data.item.title;
+        this.textVal = data.item.text;
       });
 
     }
@@ -73,7 +73,7 @@ export class ModalComponent implements OnInit {
   }
 
   onUpdate() {
-    this.modalService.onUpdate.emit({_id: this.project._id, parsedForm: this.parseForm()});
+    this.modalService.onUpdate.emit({_id: this.item._id, parsedForm: this.parseForm(), modeName: this.modeName});
     this.editMode = false;
   }
 

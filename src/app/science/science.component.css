@@ -1,3 +1,41 @@
+.science-container {
+    padding-left: 50px;
+}
+
 .page-header {
     padding-left: 50px;
+}
+
+.card {
+    /*box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);*/
+    border: none;
+}
+
+.card-img-top {
+    margin: 0 auto;
+    width: 65%;
+    border-radius: 0;
+}
+
+.card-footer {
+    background: none;
+    border: none;
+}
+
+.manage-state {
+    position: absolute;
+    background: #eee;
+    top: 10px;
+    right: 10px;
+    padding: 9px;
+    border-radius: 17px;
+}
+
+.edit {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.delete {
+    cursor: pointer;
 }

@@ -25,7 +25,18 @@ body {
 .text-tomato {
     color: #db4e5c;
 }
-
+app-projects {
+    display: block;
+    min-height: 1000px;
+}
+app-cluster {
+    display: block;
+    min-height: 700px;
+}
+app-science, app-participate {
+    display: block;
+    min-height: 350px;
+}
 /* .btn {
     border: none;
 } */

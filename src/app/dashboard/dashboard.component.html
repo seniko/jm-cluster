@@ -37,5 +37,17 @@
             </div>
         </div>
     </div>
+
+    <div class="col-sm-6">
+            <div class="card bg-light border-warning mb-3">
+                <div class="card-body">
+                    <h5 class="text-muted card-title"><i class="fas fa-file-alt text-secondary"></i> Articles</h5>
+                    <p class="card-text d-flex justify-content-between align-items-center">
+                        List of articles<span class="badge badge-secondary badge-pill">{{ numberOfArticles }}</span>
+                    </p>
+                    <a routerLink="/science" (click)="newState()" class="btn btn-warning">Articles &#8594;</a>
+                </div>
+            </div>
+        </div>
   </div>
 </div>
