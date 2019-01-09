@@ -53,8 +53,4 @@ export class NavbarComponent implements OnInit {
     return false;
   }
 
-  newState() {
-    this.dataService.changeState(false);
-  }
-
 }

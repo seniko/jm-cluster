@@ -95,4 +95,8 @@ export class ScienceComponent implements OnInit, OnDestroy {
     this.modalService.onAdd.emit({addMode: true, modeName: "Add Article"});
   }
 
+  newState() {
+    this.dataService.changeState(false);
+  }  
+
 }

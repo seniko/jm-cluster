@@ -95,6 +95,8 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     this.modalService.onAdd.emit({addMode: true, modeName: "Add Project"});
   }
 
-    
+  newState() {
+    this.dataService.changeState(false);
+  }  
 
 }
