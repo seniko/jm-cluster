@@ -48,6 +48,7 @@ import { DataService } from './services/data.service';
 import { UsersService } from './services/users.service';
 import { ModalService } from './services/modal.service';
 import { ArticlesService } from './services/articles.service';
+import { PartnersService } from './services/partners.service';
 
 import { NgxCaptchaModule } from 'ngx-captcha';
 
@@ -190,6 +191,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   providers: [
+    PartnersService,
     ArticlesService,
     AuthGuard,
     ProjectsService,

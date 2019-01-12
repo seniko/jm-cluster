@@ -1,1 +1,30 @@
 <h3 class="text-muted page-header mb-5">Участники кластера</h3>
+<div class="container">
+<div class="row">     
+        
+    <div *ngIf="authService.loggedIn() && authService.isAdmin() && state" class="btn-group col-md-12 d-flex mb-4">
+        <button (click)="newState()" class="btn btn-warning"><i class="far fa-arrow-alt-circle-left"></i></button>
+        <button (click)="onAdd()" class="btn btn-warning">Add partner</button>
+    </div>
+   
+    <div class="card mb-4 p-4 col-12 col-md-6 mr-4" *ngFor="let partner of partners" >
+        <div class="row">
+            <div class="col-md-3">
+                <img *ngIf="partner.imgUrl" class="card-img-top" src="{{partner.imgUrl}}" alt="Partner image">
+            </div>
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h5 *ngIf="partner.url" class="card-title"><a href="{{partner.url}}">{{partner.title}}</a></h5>
+                    <h5 *ngIf="!partner.url" class="card-title">{{partner.title}}</h5>
+                    <p class="card-text">{{partner.text}}</p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="authService.loggedIn() && authService.isAdmin() && state" class="manage-state">
+            <i (click)="onEdit(partner)" class="edit fas fa-edit fa-lg text-warning"></i>
+            <i (click)="onDelete(partner)" class="delete fas fa-trash-alt fa-lg text-tomato"></i>    
+        </div>
+    </div>
+
+  </div>
+</div>

@@ -1,3 +1,48 @@
 .page-header {
     padding-left: 50px;
 }
+
+.card {
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
+    max-width: 48%;
+}
+
+.card-footer {
+    background: none;
+    border: none;
+}
+
+.manage-state {
+    position: absolute;
+    background: #eee;
+    top: 10px;
+    right: 10px;
+    padding: 9px;
+    border-radius: 17px;
+}
+
+.edit {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.delete {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%;
+    }
+    .card-img-top {display: flex;
+        margin: 0 auto;
+        width: 30%;
+        border-radius: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-img-top {
+        width: 100%;
+    }
+}

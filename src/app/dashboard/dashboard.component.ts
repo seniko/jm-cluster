@@ -4,6 +4,7 @@ import { MessagesService } from '../services/messages.service';
 import { ProjectsService } from '../services/projects.service';
 import { DataService } from '../services/data.service';
 import { ArticlesService } from '../services/articles.service';
+import { PartnersService } from '../services/partners.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +16,7 @@ export class DashboardComponent implements OnInit {
   numberOfMessages: number;
   numberOfProjects: number;
   numberOfArticles: number;
+  numberOfPartners: number;
 
   state: boolean;
 
@@ -22,6 +24,7 @@ export class DashboardComponent implements OnInit {
   private messagesService: MessagesService, 
   private projectsService: ProjectsService,
   private articlesService: ArticlesService,
+  private partnersService: PartnersService,
   private dataService: DataService) { }
 
   ngOnInit() {
@@ -45,6 +48,12 @@ export class DashboardComponent implements OnInit {
     });
     this.articlesService.getArticles().subscribe(list => {
       this.numberOfArticles = list.length;
+    }, err => {
+      console.log(err);
+      return false;
+    });
+    this.partnersService.getPartners().subscribe(list => {
+      this.numberOfPartners = list.length;
     }, err => {
       console.log(err);
       return false;

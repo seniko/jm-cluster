@@ -41,12 +41,13 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
         return;
       }
-      this._flashMessagesService.show(data.msg, {cssClass: 'alert-danger alert-container container flashfade', timeout: 5000});
+      // this._flashMessagesService.show(data.msg, {cssClass: 'alert-danger alert-container container flashfade', timeout: 5000});
+      // this.router.navigate(['/login']); 
+    }, err => {
+      this._flashMessagesService.show('Invalid email or password.', {cssClass: 'alert-danger alert-container container flashfade', timeout: 5000});
       this.router.navigate(['/login']); 
-    // }, err => {
-    //   this._flashMessagesService.show('Invalid email or password.', {cssClass: 'alert-danger alert-container container flashfade', timeout: 5000});
-    //   this.router.navigate(['/login']); 
     });
+    
   }
 
   handleSuccess(captchaResponse: string): void {
