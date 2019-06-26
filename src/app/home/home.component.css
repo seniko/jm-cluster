@@ -47,6 +47,9 @@
         font-size: 1.13rem;
         padding: 0 30px;
     }
+    .media img {
+        max-height: 144px;
+    }
 }
 @media (min-width: 576px) {
     .intro-bg {
