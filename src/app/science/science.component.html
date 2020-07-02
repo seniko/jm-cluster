@@ -1,16 +1,11 @@
 
-<h3 class="text-muted page-header mb-4">Научная деятельность</h3>
-<div class="science-container"><div class="row">
+<h3 class="text-muted page-header mb-4" [innerHTML]=" 'SCIENCE.TITLE' | translate "></h3>
+<div class="science-container">
+  <div class="row">
     <div class="col-sm-8 mx-auto">
-<h5>Основные направления научной деятельности:</h5>
-<ul>
-    <li>моделирование быстропротекающих физических процессов;</li>
-    <li>технологии автоматизированого управления технологическими процессами;</li>
-    <li>технологическое обеспечение High Speed Machining;</li>
-    <li>интеллектуальные системы инженерного расчета;</li>
-    <li>разработка и внедрение ERP систем и компонентов на Open Source технологиях и многое другое.</li>
-</ul>
-<h5>Публикации:</h5></div></div>
+      <div [innerHTML]=" 'SCIENCE.DESCRIPTION' | translate "></div>
+    </div>
+  </div>
 
 <div class="row mt-4">
   <div class="col-sm-8 mx-auto">
@@ -26,7 +21,7 @@
         <img *ngIf="article.imgUrl" class="card-img-top" src="{{article.imgUrl}}" alt="Article image">
         <div class="card-body">
         <h5 class="card-title">{{article.title}}</h5>
-        <p class="card-text">{{article.text}} <br><a *ngIf="article.url" href="{{article.url}}" class="" target="_blank">Подробнее >></a></p>
+        <p class="card-text">{{article.text}} <br><a *ngIf="article.url" href="{{article.url}}" class="" target="_blank">More >></a></p>
         
       </div>
       <!-- <div class="card-footer text-muted d-flex">

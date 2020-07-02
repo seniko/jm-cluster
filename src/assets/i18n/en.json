@@ -20,9 +20,36 @@
   "HOME": {
     "INTRO": "Machine-building Java<br> Cluster of open Information Technology",
     "SECONDARY": "Single platform at the junction of engineering and Java, Web technologies",
-    "JAVAMACH": "<h5 class='mt-0 mb-3 text-center text-md-left'>JM cluster</h5><p>Cluster that unites organizations and people on a voluntary basis on a single principle: using of the Java programming language and Web technologies to solve the major problems of and industry.</p><p class='mb-0'>Our goal is to create a unified practical, scientific, educational platform on the main principles of Industry 4.0</p>",    
-    "INDUSTRY4": "<h5 class='mt-0 mb-3 text-center text-md-left'>Industry 4.0</h5><p>Transformation into a completely digital manufacturing, managed by intelligent systems that interact with the environment, moving beyond the enterprise to form a global industrial network.</p><p class='mb-0'>It includes Big Data, on the basis of which solutions are formed.</p><p class='mb-0'>Internet of Things (IoT) - interaction of modules based on network protocols and sensors. ERP system of the new generation.</p>",
+    "JAVAMACH": "<h5 class='mt-0 mb-3 text-center text-md-left'>JM cluster</h5><p>Cluster that unites organizations and people on a voluntary basis on a single principle: using of the Java programming language and Web technologies to solve the major problems of and industry.</p><p class='mb-0'>Our goal is to create a unified practical, scientific, educational platform on the main principles of Industry 4.0</p>",
+    "INDUSTRY4": "<h5 class='mt-0 mb-3 text-center text-md-left'>Industry 4.0</h5><p>Transformation into a completely digital erp, managed by intelligent systems that interact with the environment, moving beyond the enterprise to form a global industrial network.</p><p class='mb-0'>It includes Big Data, on the basis of which solutions are formed.</p><p class='mb-0'>Internet of Things (IoT) - interaction of modules based on network protocols and sensors. ERP system of the new generation.</p>",
     "ERP": "<h5 class='mt-0 mb-3 text-center text-md-left'>ERP Systems</h5><p>Implement the principle of visibility. Allow to see the company's picture in real time and make the necessary decisions. Сonsists of autonomous services, that has its own purposes. The data is stored in the cloud to which the ERP system is connected.</p>",
-    "COPYRIGHT": "© 2019 JM cluster. All rights reserved." 
+    "COPYRIGHT": "© 2020 JM cluster. All rights reserved."
+  },
+  "CLUSTER": {
+    "TITLE": "JM cluster structure",
+    "DESCRIPTION": "<h5>JM cluster solves:</h5><ul><li>Development of information exchange platform</li><li>Implementation of modern engineering standards</li><li>Development of ERP systems and components on Open Source technologies basis</li><li>Modern educational training and much more</li></ul>"
+  },
+  "ERP": {
+    "DESCRIPTION": {
+      "INTRO": "<p>Each company sets itself specific goals. These goals determine the success of the company in modern realities. Improving product quality, optimizing and reducing costs, increasing its market share, ensuring the necessary level of profitability - on the way to this companies face various problems:</p> <ul> <li>The difficulty of coordinating of various structural units</li> <li>Lack of a single information platform for each employee</li> <li>Incomplete system performance analysis</li> <li>Production problems</li> <li>Problems of marketing, advertising and sales</li> <li>Lack of staff knowledge and experience</li> <li>Industry specifics for companies</li> </ul> <p>We see the solutions of these problems in modern production:</p> <ul> <li>Automation of the main processes in the enterprise</li> <li>Using multi-module ERP systems based on Open Source technologies</li> <li>Application of microservices in these systems</li> </ul>",
+      "STRUCTURE":  {
+        "TITLE": "ERP structure",
+        "DESCRIPTION": "<p> <b> Platform. </b> The software environment in which the work will be performed. It sets the rules of behavior, basic functionality and the interaction of modules, components of this system. </p> <p> <b> Data. </b> This category includes data storage on the server, database software (SQL or alternative), tools for interpreting and processing data and sending it to program modules. </p> <p> <b> Modules. </b> Functional parts that connect to the platform as needed. All of them interact with the database and use the basic functionality. In general, the modules should work independently of each other, and should be “seamlessly” connected and disconnected if no longer needed. This paradigm fits perfectly into the concept of microservices - is an important hallmark of an JM cluster ERP system. </p>"
+      },
+      "MICROSERVICE": {
+        "TITLE": "Microservices Architecture",
+        "DESCRIPTION": "<p> The described structure is typical for ERP systems from a logical point of view. But in practice it is difficult to realize multi-modularity. And often ERP systems isolate all modules into separate products. Which contradicts the concept. </p><p> Therefore, we propose building these modules based on microservice architecture. What are microservices? </p><p> This is a modern representation of a Service Oriented Architecture (SOA) used to create distributed software systems. Submodules in a microservice architecture interact with each other to accomplish a specific purpose. <b> Microservices </b> is an architectural style in which large complex software applications consist of one or more smaller microservices. Each of these microservices is focused on a single task, which is a small business functionality. </p><p> The architectural approach to microservices design fits perfectly with the idea of modularity of ERP systems and can bring the following advantages in it. </p><p> <b> Flexibility and work efficiency: </b> developers can create, deploy, and test microservices independently of other components using much shorter iterative cycles. A microservice is just one of many components, therefore, for its development, you can use the most suitable programming language or environment for the required functionality, as well as the optimal stability mechanism. </p><p> <b> Scalability: </b> the microservice development team can scale components at runtime independently of other microservices, thereby ensuring efficient use of resources and rapid response to load changes. </p><p> <b> Resilience: </b> various techniques allow to quickly disable microservices in the event of a failure, without compromising other unrelated functions. At the same time, microservice implementations do not use the current state preservation model, which allows to instantly redistribute the load and initialize new runtime environments almost immediately. </p><p> In the ERP system, the boundaries of the modules are very clearly separated. And disabling any of them (except for some basic features) will not affect the work of the rest. If a company aims to maximize compliance with constantly changing market conditions and customer needs, it just needs a quick exchange of data between departments and the efficiency of management decisions. </p>"
+      }
+    }
+  },
+  "PROJECTS": {
+    "TITLE": "Projects"
+  },
+  "SCIENCE": {
+    "TITLE": "Scientific activity",
+    "DESCRIPTION": "<h5>The main directions of scientific activity:</h5><ul><li>Modeling of rapidly changing physical processes</li><li>Automated process control technologies</li><li>Technological support of High Speed Machining</li><li>Intelligent Engineering Calculation Systems</li><li>Development and implementation of ERP systems and components based on Open Source and much more</li></ul><h5>Publications:</h5>"
+  },
+  "PARTICIPANTS": {
+    "TITLE": "Participants"
   }
 }

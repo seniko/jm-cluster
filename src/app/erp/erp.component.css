@@ -1,10 +1,9 @@
 .figure {
     display: block;
     margin: 0 auto;
+    margin-bottom: 20px;
     max-width: 850px;
 }
-
-
 
 .anchor-heading:before {
     display: none;
@@ -38,15 +37,13 @@
 .content-wrap {
     margin-bottom: 45px;
 }
-.content-wrap p:first-of-type {
+.content-wrap .content-text:first-of-type {
     padding-top: 10px;
 }
-.content p {
+.content .content-text {
     line-height: 35px;
 }
-.content h4 {
-    line-height: 50px;
-}
+
 @media (min-width: 576px) {
     .content {
         padding-left: 65px;

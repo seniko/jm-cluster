@@ -33,7 +33,7 @@ app-cluster {
     display: block;
     min-height: 700px;
 }
-app-science, app-participate {
+app-science, app-participants {
     display: block;
     min-height: 350px;
 }

@@ -1,5 +1,5 @@
 
-<h3 class="text-muted page-header mb-4">Проекты. Решаемые задачи</h3>
+<h3 class="text-muted page-header mb-4" [innerHTML]=" 'PROJECTS.TITLE' | translate "></h3>
 <div class="row">
   <div class="col-sm-7 mx-auto">
     <div *ngIf="authService.loggedIn() && authService.isAdmin() && state" class="btn-group d-flex mx-auto mb-4">

@@ -1,19 +1,13 @@
 <div class="row">
 <div class="content">
-  <h3 class="text-muted page-header mb-4">Структура JavaMach cluster</h3>
+  <h3 class="text-muted page-header mb-4" [innerHTML]=" 'CLUSTER.TITLE' | translate "></h3>
 
   <figure class="figure mx-auto">
     <img src="/assets/img/Cluster_graph.png" class="figure-img img-fluid rounded" alt="JavaMach Cluster structure">
     <figcaption class="figure-caption text-right">&#169; JM cluster</figcaption>
   </figure>
 
-  <h5>JavaMach cluster решает ряд задач:</h5>
-  <ul>
-    <li>создание общей платформы информационного обмена;</li>
-    <li>внедрение современных инженерных стандартов;</li>
-    <li>разработка ERP систем и компонентов на Open Source технологиях;</li>
-    <li>современная образовательная подготовка и многое другое.</li>
-  </ul>
+  <div [innerHTML]=" 'CLUSTER.DESCRIPTION' | translate "></div>
   
 </div>
 </div>

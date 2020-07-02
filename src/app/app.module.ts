@@ -27,9 +27,9 @@ import { ChairComponent } from './chair/chair.component';
 import { ClusterComponent } from './cluster/cluster.component';
 import { LoginComponent } from './login/login.component';
 import { KnowledgeComponent } from './knowledge/knowledge.component';
-import { ParticipateComponent } from './participate/participate.component';
+import { ParticipantsComponent } from './participants/participants.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { ManufacturingComponent } from './manufacturing/manufacturing.component';
+import { ErpComponent } from './erp/erp.component';
 import { ScienceComponent } from './science/science.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
@@ -75,9 +75,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ClusterComponent,
     LoginComponent,
     KnowledgeComponent,
-    ParticipateComponent,
+    ParticipantsComponent,
     ProjectsComponent,
-    ManufacturingComponent,
+    ErpComponent,
     ScienceComponent,
     FooterComponent,
     RegisterComponent,
@@ -149,8 +149,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         component: ScienceComponent
       },
       {
-        path: 'manufacturing',
-        component: ManufacturingComponent
+        path: 'erp',
+        component: ErpComponent
       },
       {
         path: 'cutting-calculation',
@@ -169,8 +169,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         component: PlannerComponent
       },
       {
-        path: 'participate',
-        component: ParticipateComponent
+        path: 'participants',
+        component: ParticipantsComponent
       },
       {
         path: 'projects',

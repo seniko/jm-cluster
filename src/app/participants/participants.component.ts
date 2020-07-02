@@ -7,11 +7,11 @@ import { ModalService } from '../services/modal.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: 'app-participate',
-  templateUrl: './participate.component.html',
-  styleUrls: ['./participate.component.css']
+  selector: 'app-participants',
+  templateUrl: './participants.component.html',
+  styleUrls: ['./participants.component.css']
 })
-export class ParticipateComponent implements OnInit, OnDestroy {
+export class ParticipantsComponent implements OnInit, OnDestroy {
   partners: any[];
   partner: any;
 

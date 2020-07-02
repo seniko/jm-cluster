@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { LocationStrategy } from '@angular/common';
+import { filter } from 'rxjs/operators';
+
+declare var gtag;
 
 @Component({
   selector: 'app-root',
@@ -17,6 +20,18 @@ export class AppComponent implements OnInit {
 
     let browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|uk|ru/) ? browserLang : 'en');
+
+
+    const navEndEvents = router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    );
+    navEndEvents.subscribe((event: NavigationEnd) => {
+   
+      gtag('config', 'UA-171109603-1', {
+        'page_path': event.urlAfterRedirects,
+      });
+
+    });
   }
 
 
