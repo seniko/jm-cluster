@@ -15,7 +15,7 @@
         <div class="card-body">
         <h5 class="card-title">{{project.title}}</h5>
         <p class="card-text">{{project.text}}</p>
-        <a *ngIf="project.url" href="{{project.url}}" class="btn btn-primary" target="_blank">Details</a>
+        <a *ngIf="project.url" href="{{project.url}}" class="btn btn-primary" target="_blank">More</a>
       </div>
       <div class="card-footer text-muted d-flex">
         <span class="ml-auto">{{ project.date | date:'dd MMM, yy' }}</span>

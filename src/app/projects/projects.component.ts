@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
 
   constructor(public projectService: ProjectsService,
     public _flashMessagesService: FlashMessagesService,
-    private authService: AuthService,
+    public authService: AuthService,
     private dataService: DataService,
     private modalService: ModalService) { 
 

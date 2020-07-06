@@ -20,7 +20,7 @@ export class ParticipantsComponent implements OnInit, OnDestroy {
   
   constructor(public partnerService: PartnersService,
     public _flashMessagesService: FlashMessagesService,
-    private authService: AuthService,
+    public authService: AuthService,
     private dataService: DataService,
     private modalService: ModalService) {
 
