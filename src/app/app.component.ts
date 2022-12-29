@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     translate.setDefaultLang('en');
 
     let browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|uk|ru/) ? browserLang : 'en');
+    translate.use(browserLang.match(/uk|ru/) ? 'uk' : 'en');
 
 
     const navEndEvents = router.events.pipe(

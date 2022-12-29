@@ -22,7 +22,6 @@ import { PlannerComponent } from './planner/planner.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { NewsComponent } from './news/news.component';
-import { KhpiComponent } from './khpi/khpi.component';
 import { ChairComponent } from './chair/chair.component';
 import { ClusterComponent } from './cluster/cluster.component';
 import { LoginComponent } from './login/login.component';
@@ -70,7 +69,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotFoundComponent,
     ContactComponent,
     NewsComponent,
-    KhpiComponent,
     ChairComponent,
     ClusterComponent,
     LoginComponent,
@@ -139,10 +137,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       {
         path: 'chair',
         component: ChairComponent
-      },
-      {
-        path: 'khpi',
-        component: KhpiComponent
       },
       {
         path: 'science',

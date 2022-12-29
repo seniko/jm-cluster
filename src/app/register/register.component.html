@@ -3,12 +3,12 @@
     <form ngForm #f="ngForm" (ngSubmit)="onSubmit()" class="register">
       
         <img class="mb-4" src="assets\img\security.svg" alt="" width="72">
-        <h1 class="h3 mb-3 font-weight-normal">Регистрация</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
 
-        <!-- <h1 class="h3 mb-5 font-weight-normal">Регистрация</h1> -->
+        <!-- <h1 class="h3 mb-5 font-weight-normal">Sign Up</h1> -->
         <div ngModelGroup="contact" #contact="ngModelGroup">
             <div class="form-group">
-                <label for="firstName">Имя</label>
+                <label for="firstName">Name</label>
                 <input 
                   required 
                   minlength="2" 
@@ -40,7 +40,7 @@
   
   
             <div class="form-group">
-                <label for="inputPassword">Пароль</label>
+                <label for="inputPassword" class="pr-2">Password</label>
                 <input type="password" id="inputPassword" name="password" ngModel #password="ngModel" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{4,}$" class="form-control" required [(ngModel)]="passwordVal">               
             </div>
             <div class="alert alert-danger" *ngIf="!password.valid && password.touched">
@@ -57,7 +57,7 @@
             (success)="handleSuccess($event)">
         </ngx-recaptcha2>
 
-        <button type="submit" class="btn btn-lg btn-block mt-3 btn-primary" [disabled]="!f.valid">Регистрация</button>
+        <button type="submit" class="btn btn-lg btn-block mt-3 btn-primary" [disabled]="!f.valid">Sign Up</button>
       </form>
   
     </div>

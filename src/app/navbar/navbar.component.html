@@ -10,7 +10,7 @@
     <div [ngbCollapse]="isCollapsed" class="navbar-collapse flex-column">
       <ul class="navbar-nav ml-auto settings-content">
         <li class="nav-item lang">
-          <label *ngFor="let lang of translate.getLangs()" class="lang-box">{{ lang | uppercase }}
+          <label *ngFor="let lang of translate.getLangs()" class="lang-box">{{ lang | titlecase }}
               <input type="radio" #langSelect (change)="translate.use(langSelect.value)" [value]="lang" [checked]="lang === translate.currentLang" name="radio">
               <span class="checkmark"></span>
           </label>
