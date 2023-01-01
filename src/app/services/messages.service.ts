@@ -11,7 +11,7 @@ export class MessagesService {
   sendMessage(message) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/contact/messages', message, {headers: headers})
+    return this.http.post('contact/messages', message, {headers: headers})
     .map(res => res.json());
   }
 
@@ -20,7 +20,7 @@ export class MessagesService {
     this.authService.loadToken();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', this.authService.authToken);
-    return this.http.get('http://localhost:3000/contact/messages', {headers: headers})
+    return this.http.get('contact/messages', {headers: headers})
     .map(res => res.json());
   }
 
@@ -29,7 +29,7 @@ export class MessagesService {
     this.authService.loadToken();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', this.authService.authToken);
-    return this.http.delete(`http://localhost:3000/contact/messages/${_id}`, {headers: headers})
+    return this.http.delete(`contact/messages/${_id}`, {headers: headers})
     .map(res => res.json());
   }
 

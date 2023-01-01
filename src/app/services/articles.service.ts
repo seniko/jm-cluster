@@ -11,7 +11,7 @@ export class ArticlesService {
     let headers = new Headers();
     this.authService.loadToken();
     headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:3000/cluster/articles')
+    return this.http.get('cluster/articles')
     .map(res => res.json());
   }
 
@@ -20,7 +20,7 @@ export class ArticlesService {
     this.authService.loadToken();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', this.authService.authToken);
-    return this.http.post('http://localhost:3000/cluster/articles', article, {headers: headers})
+    return this.http.post('cluster/articles', article, {headers: headers})
     .map(res => res.json());
   }
   
@@ -29,7 +29,7 @@ export class ArticlesService {
     this.authService.loadToken();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', this.authService.authToken);
-    return this.http.patch(`http://localhost:3000/cluster/articles/${_id}`, updatedArticle, {headers: headers})
+    return this.http.patch(`cluster/articles/${_id}`, updatedArticle, {headers: headers})
     .map(res => res.json());
   }
 
@@ -38,7 +38,7 @@ export class ArticlesService {
     this.authService.loadToken();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', this.authService.authToken);
-    return this.http.delete(`http://localhost:3000/cluster/articles/${_id}`, {headers: headers})
+    return this.http.delete(`cluster/articles/${_id}`, {headers: headers})
     .map(res => res.json());
   }
 }

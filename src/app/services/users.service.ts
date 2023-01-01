@@ -14,7 +14,7 @@ export class UsersService {
     this.authService.loadToken();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', this.authService.authToken);
-    return this.http.get('http://localhost:3000/users', {headers: headers})
+    return this.http.get('users', {headers: headers})
     .map(res => res.json());
   }
 
@@ -23,7 +23,7 @@ export class UsersService {
     this.authService.loadToken();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', this.authService.authToken);
-    return this.http.delete(`http://localhost:3000/users/${_id}`, {headers: headers})
+    return this.http.delete(`users/${_id}`, {headers: headers})
     .map(res => res.json());
   }
 }
